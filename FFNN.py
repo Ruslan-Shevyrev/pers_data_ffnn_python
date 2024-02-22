@@ -3,7 +3,6 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import data
 import config
-
 import utils
 
 
@@ -80,9 +79,7 @@ def training_exists_model(input_model, output_model):
 
 def predict(model_name, predict_data):
 
-    print(predict_data)
     predict_data = list(map(utils.str_to_arr, predict_data))
-    print(predict_data)
 
     predict_data = tf.stack(predict_data)
 
@@ -92,8 +89,8 @@ def predict(model_name, predict_data):
 
 def test_predict(model_name):
     predict_data = data.get_predict_data()
-    predicts = predict(model_name, predict_data)
     print(predict_data)
+    predicts = predict(model_name, predict_data)
     for index, value in enumerate(predicts):
         print(predict_data[index])
         print('Predict: ' + str(value))
