@@ -17,7 +17,7 @@ def get_study_data():
                           password=config_db.PASSWORD,
                           dsn=config_db.DSN) as connection:
         with connection.cursor() as cursor:
-            for r in cursor.execute(SQL.get_study_select()):
+            for r in cursor.execute(sql.get_study_select()):
                 list_num_out = np.zeros(config.OUTPUT_SIZE, np.float32)
 
                 list_num_out[r[1]] = 1
@@ -37,7 +37,7 @@ def get_predict_data():
                           dsn=config_db.DSN) as connection:
         with connection.cursor() as cursor:
 
-            for r in cursor.execute(SQL.get_predict_select()):
+            for r in cursor.execute(sql.get_predict_select()):
                 input_data.append(r[0])
     return input_data
 

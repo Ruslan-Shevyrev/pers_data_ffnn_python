@@ -95,7 +95,6 @@ def predict(model_name, predict_data):
 
 def test_predict(model_name):
     predict_data = data.get_predict_data()
-    print(predict_data)
     predicts = predict(model_name, predict_data)
     for index, value in enumerate(predicts):
         print(predict_data[index])
