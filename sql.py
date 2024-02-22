@@ -1,4 +1,4 @@
-import config
+import config.config as config
 
 STUDY_SELECT = ("SELECT GOOD_VAL, "
                 "       CHECK_ID,"

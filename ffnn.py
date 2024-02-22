@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 from sklearn.model_selection import train_test_split
 import data
-import config
+from config import config
 import utils
 
 
@@ -77,6 +77,12 @@ def training_exists_model(input_model, output_model):
     model.save(output_model)
 
 
+def convert_to_h5(input_model):
+    print('Load_model')
+    model = tf.keras.models.load_model(input_model)
+    model.save(input_model+'.h5')
+
+
 def predict(model_name, predict_data):
 
     predict_data = list(map(utils.str_to_arr, predict_data))
@@ -94,9 +100,3 @@ def test_predict(model_name):
     for index, value in enumerate(predicts):
         print(predict_data[index])
         print('Predict: ' + str(value))
-
-
-def convert_to_h5(input_model):
-    print('Load_model')
-    model = tf.keras.models.load_model(input_model)
-    model.save(input_model+'.h5')

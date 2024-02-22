@@ -7,11 +7,6 @@ EPOCHS = 10
 VALIDATION_STEPS = 30
 TEST_SIZE = 0.2
 
-# db config
-DSN = 'oralistener.gksm.local/apex'
-USER = 'app_pdata'
-PASSWORD = 'Constant11-1'
-
 # SQL
 PARTITION_DATA = True
 STUDY_FROM_ID = 1900000

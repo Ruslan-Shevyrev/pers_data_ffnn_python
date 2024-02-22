@@ -1,8 +1,9 @@
 import oracledb
 import numpy as np
 import utils
-import config
-import SQL
+import config.config_db as config_db
+import config.config as config
+import sql
 
 input_data = []
 output_data = []
@@ -12,7 +13,9 @@ def get_study_data():
     input_data.clear()
     output_data.clear()
     i = 1
-    with oracledb.connect(user=config.USER, password=config.PASSWORD, dsn=config.DSN) as connection:
+    with oracledb.connect(user=config_db.USER,
+                          password=config_db.PASSWORD,
+                          dsn=config_db.DSN) as connection:
         with connection.cursor() as cursor:
             for r in cursor.execute(SQL.get_study_select()):
                 list_num_out = np.zeros(config.OUTPUT_SIZE, np.float32)
@@ -29,7 +32,9 @@ def get_study_data():
 
 def get_predict_data():
     input_data.clear()
-    with oracledb.connect(user=config.USER, password=config.PASSWORD, dsn=config.DSN) as connection:
+    with oracledb.connect(user=config_db.USER,
+                          password=config_db.PASSWORD,
+                          dsn=config_db.DSN) as connection:
         with connection.cursor() as cursor:
 
             for r in cursor.execute(SQL.get_predict_select()):

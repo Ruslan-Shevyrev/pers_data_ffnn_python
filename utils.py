@@ -1,5 +1,5 @@
 import numpy as np
-import config
+import config.config as config
 
 
 def str_to_arr(list_str):
